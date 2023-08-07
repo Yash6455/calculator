@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATER</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin-top: 50px;
+            margin-left: 100px;
+           
+        }
+        .div1{
+            background-color:rgb(255, 128, 0);
+            padding: 30px;
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            width:65%;
+        }
+        body{
+            height: 100%;
+            width: 100%;
+        }
+        .button{
+            width: 65px;
+            padding: 20px;
+            margin: 0 4px;
+            border: solid rgb(0, 195, 255) 2px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            font-size: 1rem;
+            font-weight: 800;
+            background-color: rgb(0, 0, 0);
+          
+        }
+        .button:hover{
+            background-color:rgb(80, 92, 228);
+        }
+        .row{
+            margin: 8px 0;
+        }
+        .text-center{
+            text-align: center;
+            color: black;
+        }
+        .container{
+            text-align: center;
+        }
+        .mx-auto{
+            margin: auto;
+        }
+        .flex{
+            display: flex;
+        } 
+        .flex-col{
+            flex-direction: column;
+        }
+        .row input{
+            border: solid rgb(0, 255, 213) 2px;
+            border-radius: 6px;
+            padding:10px 0px;
+            margin: 0px;
+            font-size: 24px;
+            background-color: antiquewhite;
+        }
+
+        .row input:hover{
+            background-color:rgb(248, 66, 0);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="div1">
+    <h1 class="text-center">Welcome To Calculate Me!</h1>
+    <div class="container flex flex-col mx-auto">
+        <div class="row">
+            <input class="input" type="text">
+        </div>
+        <div class="row">
+            <button class="button">AC</button>
+            <button class="button">M+</button>
+            <button class="button">M-</button>
+            <button class="button">/</button>
+        </div>
+        <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button">*</button>
+        </div>
+        <div class="row">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button">-</button>
+        </div>
+        <div class="row">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button">+</button>
+        </div>
+        <div class="row">
+            <button class="button">0</button>
+            <button class="button">%</button>
+            <button class="button">.</button>
+            <button class="button">=</button>
+        </div>
+   </div>
+</div>
+</body>
+<script>
+let string ="";
+let buttons = document.querySelectorAll('.button');
+Array.from(buttons).forEach((button) => {
+    button.addEventListener('click',(e)=>{
+         if(e.target.innerHTML == '='){
+            string = eval(string);
+            document.querySelector('input').value=string;
+         }
+         else if(e.target.innerHTML == 'AC'){
+            string ="";
+            document.querySelector('input').value=string;
+         }
+         else if(e.target.innerHTML == 'M+'){
+            string ="working!!!";
+            document.querySelector('input').value=string;
+         }
+         else if(e.target.innerHTML == 'M-'){
+            string ="working";
+            document.querySelector('input').value=string;
+         }
+         else{
+        console.log(e.target)
+        string = string + e.target.innerHTML;
+        document.querySelector('input').value=string;
+         }
+    })
+});
+</script>
+</html>
